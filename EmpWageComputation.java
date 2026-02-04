@@ -12,14 +12,19 @@ public class EmpWageComputation {
 
         int dailyWage = 0;
         int employeeHours = 0;
-        if(employeeCheck == 1) {
-            System.out.println("Full Time Employee");
-            employeeHours = fullDayHour;
-        } else if (employeeCheck == 2) {
-            System.out.println("Part Time Employee");
-            employeeHours = partTimeHour;
-        } else {
-            System.out.println("Employee is Apsent");
+
+        switch (employeeCheck) {
+            case 1 :
+                System.out.println("Full Time Employee");
+                employeeHours = fullDayHour;
+                break;
+            case 2 :
+                System.out.println("Part Time Employee");
+                employeeHours = partTimeHour;
+                break;
+            default:
+                System.out.println("Employee is Apsent");
+                break;
         }
 
         dailyWage = employeeHours * wagePerHour;
