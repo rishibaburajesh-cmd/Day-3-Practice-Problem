@@ -7,27 +7,29 @@ public class EmpWageComputation {
         int partTimeHour = 8;
         
         Random rn = new Random();
+        int fixedRole = rn.nextInt(2) + 1;
         System.out.println("Welcome to Employee Wage Computation");
-        int employeeCheck = rn.nextInt(3);
 
         int dailyWage = 0;
         int employeeHours = 0;
 
-        switch (employeeCheck) {
-            case 1 :
-                System.out.println("Full Time Employee");
-                employeeHours = fullDayHour;
-                break;
-            case 2 :
-                System.out.println("Part Time Employee");
-                employeeHours = partTimeHour;
-                break;
-            default:
-                System.out.println("Employee is Apsent");
-                break;
+        for (int i = 1; i <= 20; i++) {
+            boolean employeeCheck = rn.nextBoolean();
+            if (employeeCheck) {
+                switch (fixedRole) {
+                    case 1:
+                        employeeHours = fullDayHour;
+                        break;
+                
+                    default:
+                        employeeHours = partTimeHour;
+                        break;
+                }
+            } else {
+                employeeHours = 0;
+            }
+            dailyWage += employeeHours * wagePerHour;
         }
-
-        dailyWage = employeeHours * wagePerHour;
 
         System.out.println("Daily Employee Wage: " + dailyWage);
     }    
